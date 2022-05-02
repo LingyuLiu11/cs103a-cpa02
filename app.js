@@ -6,9 +6,9 @@
 //  Loading packages to support the server
 // *********************************************************** //
 // First we load in all of the packages we need for the server...
-if (process.env.NODE_ENV !== "production") {
-  require('dotenv').config({ path: 'ENV_FILENAME' });
-}
+// if (process.env.NODE_ENV !== "production") {
+//   require('dotenv').config({ path: 'ENV_FILENAME' });
+// }
 
 const createError = require("http-errors"); // to handle the server errors
 const express = require("express");
@@ -29,6 +29,8 @@ const User = require("./models/User");
 // *********************************************************** //
 
 const mongoose = require("mongoose");
+require('dotenv').config();
+
 // const mongodb_URI = 'mongodb://localhost:27017/cs103a_todo'
 const mongodb_URI = process.env.DB_URL;
 //const mongodb_URI = 'mongodb+srv://cs_sj:BrandeisSpr22@cluster0.kgugl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
