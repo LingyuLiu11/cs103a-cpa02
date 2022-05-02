@@ -7,7 +7,7 @@
 // *********************************************************** //
 // First we load in all of the packages we need for the server...
 if (process.env.NODE_ENV !== "production") {
-  require('dotenv').config();
+  require('dotenv').config({ path: 'ENV_FILENAME' });
 }
 
 const createError = require("http-errors"); // to handle the server errors
@@ -166,6 +166,7 @@ app.use(function (err, req, res, next) {
 // *********************************************************** //
 //Here we set the port to use between 1024 and 65535  (2^16-1)
 const port = process.env.PORT || "5001";
+console.log('connecting on port' + port);
 app.set("port", port);
 
 // and now we startup the server listening on that port
